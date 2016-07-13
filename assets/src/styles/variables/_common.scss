@@ -1,0 +1,12 @@
+// At the time of writing we can only use the weights 300, 400, 500
+// --
+$font-weight-normal: 300 !default;
+$font-weight-medium: 400 !default;
+$font-weight-bold:   500 !default;
+
+$side-bar-width:     250px;
+$menu-padding:       15px;
+
+@import "colors"; // Set colors and override them too
+@import "bootstrap-custom-variables"; // All other Bootstrap overrides
+@import "bootstrap/variables"; // Default Bootstrap variables (placement is not a mistake)

@@ -1,0 +1,161 @@
+@import "../variables/common";
+
+$nav-height: 56px;
+
+@mixin nav($bg-color, $fg-color, $border-color) {
+    ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    a {
+        color: rgba($fg-color, 0.6);
+        position: relative;
+        transition-property: background color;
+        transition-duration: 0.2s;
+        &:hover,
+        &.active {
+            background: rgba($fg-color, 0.1);
+            color: $fg-color;
+        }
+    }
+    a:after {
+        transition-property: opacity;
+        transition-duration: 0.5s;
+        opacity: 0;
+        content: '';
+        border-color: $color-secondary;
+        position: absolute;
+        bottom: -1px;
+        right: 0;
+        top: 0;
+        left: 0;
+        border-style: solid;
+        border-width: 0;
+    }
+    a.active {
+        &:after {
+            opacity: 1;
+            border-bottom-width: 5px;
+        }
+    }
+
+    .__nav__bar,
+    .__nav__bar--secondary {
+        font-size: 16px;
+        display: flex;
+        a {
+            position: relative;
+        }
+    }
+    .__nav__bar {
+        flex-wrap: wrap-reverse;
+        justify-content: flex-end;
+        background-color: $bg-color;
+        color: $fg-color;
+    }
+    .__nav__bar--secondary {
+        flex-wrap: wrap;
+        background: linear-gradient($color-lower, $color-lowest 33%);
+        color: $color-highest;
+        border-bottom: 1px solid $color-lower !important;
+        a {
+            color: $color-highest;
+            position: relative;
+        }
+        .__nav__org-name:after {
+            content: '';
+            position: absolute;
+            left: $menu-padding;
+            top: 0;
+            border: 6px solid transparent;
+            border-left: 6px solid $color-lower;
+            border-top: 6px solid $color-lower;
+            transform: translate(50%, -50%) rotate(45deg);
+        }
+    }
+    .__header__logo-container {
+        .__header__logo {
+            background: $bg-color;
+            pointer-events: none;
+            display: inline-block;
+            height: $nav-height;
+            img {
+                padding: 17px;
+                height: 100%;
+            }
+        }
+    }
+    .__nav__org-name {
+        position: relative;
+        // font-weight: $font-weight-medium;
+        cursor: default;
+        padding: 0;
+        margin: 0;
+        line-height: $nav-height;
+        padding-right: $menu-padding;
+        padding-left: $menu-padding;
+        .__nav__org-name__content {
+            max-width: $side-bar-width;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+    .__nav__large,
+    .__nav__small {
+        list-style: none;
+        display: flex;
+        border-bottom: 1px solid $border-color;
+        flex-grow: 1;
+        a {
+            display: block;
+            line-height: $nav-height;
+            padding-right: $menu-padding;
+            padding-left: $menu-padding;
+        }
+    }
+    .__nav__small {
+        justify-content: flex-end;
+    }
+    .__nav__small a {
+        font-size: 12px;
+    }
+
+    .__account-menu {
+        position: relative; // So menu optons can be positioned absolutely relative to this
+        &:hover .__account-menu__options {
+            visibility: visible;
+            opacity: 1;
+        }
+        a {
+            line-height: $nav-height;
+            font-weight: $font-weight-normal;
+        }
+    }
+    .__account-menu .__account-menu__options {
+        visibility: hidden;
+        opacity: 0;
+        transition-property: visibility opacity;
+        transition-duration: 0.1s;
+        flex-direction: column;
+        border: 1px solid $border-color;
+
+        background: $bg-color;
+        width: 200px;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        padding: 10px 0;
+        a {
+            line-height: 32px;
+        }
+    }
+}
+
+.__nav {
+    min-width: 850px; // to fit long emails and long org names
+    @include nav($color-primary, $color-lowest, mix($color-primary, $color-lowest, 70%));
+    // @include nav($color-lowest, $color-highest, $color-lower);
+}

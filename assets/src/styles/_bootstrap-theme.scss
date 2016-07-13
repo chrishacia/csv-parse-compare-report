@@ -1,0 +1,202 @@
+@import "variables/common";
+@import "bootstrap-custom-imports";
+
+// Only modify things that are already part of Bootstrap
+
+.form-control,
+.panel {
+    box-shadow: none;
+    // border-width: 2px;
+    // border-color: transparent;
+    // border-bottom-color: $color-balanced;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 5px rgba($input-border-focus, 0.5);
+}
+.has-success .form-control:focus {
+    box-shadow: 0 0 5px rgba($brand-success, 0.5);
+}
+
+.has-warning {
+    $yellow-text: desaturate(darken($brand-warning, 10%), 40%);
+    & .help-block,
+    & .control-label,
+    & .radio,
+    & .checkbox,
+    & .radio-inline,
+    & .checkbox-inline,
+    & .radio label,
+    & .checkbox label,
+    & .radio-inline label,
+    & .checkbox-inline label {
+        color: $yellow-text;
+    }
+    & .form-control {
+        border-color: $yellow-text;
+    }
+    & .form-control:focus {
+        border-color: $yellow-text;
+        box-shadow: 0 0 5px rgba($yellow-text, 0.5);
+    }
+}
+
+.has-error .form-control:focus {
+    box-shadow: 0 0 5px rgba($brand-danger, 0.5);
+}
+
+h1,
+h2,
+h3,
+.h1,
+.h2,
+.h3 {
+}
+
+h4,
+h5,
+h6,
+.h4,
+.h5,
+.h6 {
+}
+
+select {
+    // https://jsfiddle.net/Lrqh0drd/6/
+    @if $border-radius-base == 0px {
+        outline: 1px solid $input-border;
+        outline-offset: -1px;
+        border: none !important;
+    }
+}
+
+.list-group-item {
+    // border-width: 2px;
+}
+
+.help-block {
+  color: mix($text-color, $color-lowest, 50%); // lighten the text some for contrast
+}
+
+label,
+dt,
+.label {
+  font-weight: $font-weight-bold;
+}
+
+.bg-primary {
+  color: $color-lowest;
+}
+
+.btn-group.open .dropdown-toggle {
+  @include box-shadow(inset 0 3px 5px rgba($color-highest, .125));
+}
+
+.btn {
+    &:active,
+    &.active {
+    //   @include box-shadow(inset 0 3px 5px rgba($color-highest, .125));
+        &.btn-default {
+            color: $color-secondary;
+            background-color: rgba($color-secondary, 0.1);
+            box-shadow: none;
+        }
+    }
+    &.btn-link:focus {
+        color: inherit;
+        outline: none;
+    }
+}
+
+kbd {
+    // box-shadow: inset 0 -1px 0 rgba($color-highest, .25);
+    box-shadow: none;
+}
+
+
+.dropdown-menu {
+  @include box-shadow(0 6px 12px rgba($color-highest, .175));
+}
+
+.popover {
+  @include box-shadow(0 5px 10px rgba($color-highest, .2));
+}
+
+// Overriding boostrap/mixins/_list-group
+.list-group-item {
+    &.active,
+    &.active:hover,
+    &.active:focus {
+        color: $color-active;
+    }
+}
+
+
+//
+// Overriding Breadcrumbs content as a fix for the escaped unicode
+// https://github.com/twbs/bootstrap/issues/16576
+// --------------------------------------------------
+
+.breadcrumb {
+  > li {
+    + li:before {
+      content: $breadcrumb-separator + "\00a0"; // Unicode space added since inline-block means non-collapsing white-space
+    }
+  }
+}
+
+
+//
+// Fixing an issue with margins created by nesting this .form-group .form-inline inside .form-horizontal
+// https://stackoverflow.com/questions/18429121/inline-form-nested-within-horizontal-form-in-bootstrap-3
+
+.form-inline .form-group{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+    background-color: $color-lowest;
+    border-color: $list-group-border;
+    color: inherit;
+    &:after {
+        content: '';
+        position: absolute;
+        width: 6px;
+        left: 0;
+        height: 100%;
+        background-color: $color-active;
+        top: 0;
+    }
+}
+
+.btn-link,
+.btn-link:hover,
+.btn-link:active,
+.btn-link:focus {
+    box-shadow: none;
+}
+
+.popover {
+    color: $text-color;
+}
+
+//
+// Adding a Required Asterisk indicator to form element labels that need some form of indicator
+// https://stackoverflow.com/questions/23141854/adding-asterisk-to-required-fields-in-bootstrap-3
+.form-group.required .control-label:after {
+  content:"*";
+  color:red;
+}
+
+.label {
+    cursor: default;
+}
+.label.label-default {
+    background-color: $color-low;
+    &:hover {
+        background-color: $color-balanced;
+    }
+}

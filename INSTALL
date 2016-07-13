@@ -1,0 +1,27 @@
+Node (npm) is required for this project
+If you do not have npm install, please review
+https://docs.npmjs.com/getting-started/installing-node
+or run the following command, in the command line of the system/server (linux assumed)
+
+Aside from the following list of commands/directions I assume there is a server capable of running PHP and Standard front end technologies, that you have shell access to that will allow you to run the following command, and ultimately the project overall.
+
+to see this project in action, without running all the below code, you could alternatively go to ——]] aft8.com [[—— (a personal domain of mine, currently running this project as a fall back option for review).
+
+    sudo npm install npm -g
+
+Once you have installed node on to your server/system
+navigate to the folder you unarchived this data set to and 
+run the following commands to install the packages needed to run this
+(I apologize if there is an overhead, I did grab one of a handful of package.json files I had that I’ve used to save time in this endeavor overall)
+
+	cd assets
+	npm install 
+	npm install -g webpack
+	npm run start
+
+the above commands will navigate you into the assets folder of the project
+install all node modules (and some extras unfortunately) to build the distribution versions of the source files, and start the webpack watcher as well as run gulp to compile the css files
+
+On a different note I did originally want to develop this in ember however after reviewing the documentation I realized that since the last time I touched ember there has been a fair amount of change to it overall. So in the name of getting this homework done in a timely fashion I ended up going with what I am currently familiar with and use day to day in my current role.
+
+## npm install -g ember-cli@2.5

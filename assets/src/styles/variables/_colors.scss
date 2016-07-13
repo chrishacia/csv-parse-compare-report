@@ -1,0 +1,116 @@
+//** For normal colors
+
+$color-lightest:        #fff;
+// $color-darkest:         #444;
+$color-darkest:         darken(#636968, 15%);
+
+$fg-base:               $color-darkest !default;
+$bg-base:               $color-lightest !default;
+
+//** All the shades
+// We don't want to say light or dark in the variable names because
+// either the foreground (fg-base (text color)) or the background (bg-base)
+// can be dark or light.
+
+// The way this works is that fg (foreground) is considered the highest because
+// this would be the color of the text. The bg (background) is considered to be
+// the lowest and is generally the color of the background.
+
+$color-highest:         mix($fg-base, $bg-base, 100%);
+$color-higher:          mix($fg-base, $bg-base,  85%);
+$color-high:            mix($fg-base, $bg-base,  65%);
+$color-balanced:        mix($fg-base, $bg-base,  50%);
+$color-low:             mix($fg-base, $bg-base,  35%);
+$color-lower:           mix($fg-base, $bg-base,  15%);
+$color-lowest:          mix($fg-base, $bg-base,   0%);
+
+// $light-highest:         rgba($color-lightest, 1.00);
+// $light-higher:          rgba($color-lightest, 0.85);
+// $light-high:            rgba($color-lightest, 0.65);
+// $light-balanced:        rgba($color-lightest, 0.50);
+// $light-low:             rgba($color-lightest, 0.35);
+// $light-lower:           rgba($color-lightest, 0.15);
+// $light-lowest:          rgba($color-lightest, 0.00);
+//
+// $dark-highest:          rgba($color-darkest, 1.00);
+// $dark-higher:           rgba($color-darkest, 0.85);
+// $dark-high:             rgba($color-darkest, 0.65);
+// $dark-balanced:         rgba($color-darkest, 0.50);
+// $dark-low:              rgba($color-darkest, 0.35);
+// $dark-lower:            rgba($color-darkest, 0.15);
+// $dark-lowest:           rgba($color-darkest, 0.00);
+
+// $darkest:         rgba($color-darkest, 1.00);
+// $darker:          rgba($color-darkest, 0.85);
+// $dark:            rgba($color-darkest, 0.65);
+// $dark-medium:     rgba($color-darkest, 0.50);
+//
+// $lightest:        rgba($color-lightest, 1.00);
+// $lighter:         rgba($color-lightest, 0.85);
+// $light:           rgba($color-lightest, 0.65);
+// $light-medium:    rgba($color-lightest, 0.50);
+
+
+
+
+
+$color-primary:         #68baad;
+$color-secondary:       #439386;
+// $color-secondary:       #2581E2;
+// $color-primary:         $color-darkest;
+// $color-secondary:       #2581E2;
+
+//** For testing
+
+// $color-darkest:         white;
+// $color-lightest:        #444;
+
+// $color-darkest:         #1e242b;
+// $color-lightest:        #f0eee2;
+
+// $color-secondary:         #e91349;
+// $color-primary:       darken(blue, 20%);
+// $color-lightest:        lighten(yellow, 40%);
+
+// $color-darkest:         #d5f6ee;
+// $color-primary:           #9a1919;
+// $color-secondary:         black;
+
+$nav-fg: $color-primary;
+$nav-bg: $color-lightest;
+
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+$brand-primary:         $color-secondary;
+$brand-primary-light:   $color-secondary;
+// $brand-success:         #47AD84;
+// $brand-info:            #4E8EAF;
+// $brand-warning:         #D4B078;
+// $brand-danger:          #AD4754;
+
+// $brand-success:         #00C57E;
+// $brand-info:            $color-secondary;
+// $brand-warning:         #DAB957;
+// $brand-danger:          #D43C5C;
+
+// $brand-success:         #2CE8A5;
+// $brand-info:            #A4E0FF;
+// $brand-warning:         #EAE61D;
+// $brand-danger:          #FB8DA5;
+
+// $brand-success:         #3EFFBA;
+// $brand-info:            #A4E0FF;
+// $brand-warning:         #F1EE71;
+// $brand-danger:          #FFA2BF;
+
+$brand-success:         #00C9AF;
+$brand-info:            $color-secondary;
+$brand-warning:         #F5DE69;
+$brand-danger:          #CE126E;
+
+// $code-color:            #C7254E;
+// $code-bg:               #F9F2F4;
+
+$color-active:          $color-low;
